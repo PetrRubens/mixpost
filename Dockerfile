@@ -14,12 +14,8 @@ WORKDIR /var/www
 
 COPY . .
 
-WORKDIR /var/www/apps/server
-
 RUN composer install --no-dev --optimize-autoloader
 
-# Expose port
 EXPOSE 8080
 
-# Run migrations and start Laravel
 CMD php artisan migrate --force || true && php artisan serve --host=0.0.0.0 --port=8080
