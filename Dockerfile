@@ -14,6 +14,8 @@ WORKDIR /var/www
 
 COPY . .
 
+WORKDIR /var/www/apps/server
+
 RUN composer install --no-dev --optimize-autoloader
 
 # Expose port
